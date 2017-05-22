@@ -1,0 +1,15 @@
+.article {
+  border: 1px solid #ccc;
+  border-top: none;
+  cursor: pointer;
+}
+
+.article:first-child {
+  border: 1px solid #ccc;
+}
+
+.article a {
+  display: block;
+  padding: 3pt 8pt;
+  text-decoration: none;
+}

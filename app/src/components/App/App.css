@@ -1,4 +1,10 @@
-.App {
-  background: red;
-  color: white;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
 }
