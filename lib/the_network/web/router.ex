@@ -18,6 +18,7 @@ defmodule TheNetwork.Web.Router do
     pipe_through :api
 
     resources "/articles", ArticleController, except: [:new, :edit]
+    resources "/channels", ChannelController, except: [:new, :edit]
     resources "/users", UserController, except: [:new, :edit]
   end
 

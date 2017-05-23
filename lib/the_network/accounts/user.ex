@@ -6,6 +6,7 @@ defmodule TheNetwork.Accounts.User do
 
   schema "accounts_users" do
     field :name, :string
+    has_one :channel, TheNetwork.Channels.Channel
 
     timestamps()
   end
