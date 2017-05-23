@@ -1,22 +1,11 @@
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction, handleActions } from 'redux-actions';
 
-import { createChannel } from 'modules/socket';
-
+// actions
 export const fetchArticles = createAction('FETCH_ARTICLES');
 export const fetchArticlesFulfilled = createAction('FETCH_ARTICLES_FULFILLED');
 
-const articlesChannel = createChannel('articles:rank');
-
-articlesChannel
-  .join()
-  .receive('ok', resp => {
-    console.log('Joined successfully', resp);
-  })
-  .receive('error', resp => {
-    console.log('Unable to join', resp);
-  });
-
+// epics
 export const fetchArticlesEpic = action$ =>
   action$
     .ofType(String(fetchArticles))
@@ -26,13 +15,14 @@ export const fetchArticlesEpic = action$ =>
         .map(response => fetchArticlesFulfilled(response))
     );
 
+// reducer
 const defaultState = {
   articles: []
 };
 
 export default handleActions(
   {
-    [fetchArticlesFulfilled]: (state, { payload: { data } }) => ({
+    [fetchArticlesFulfilled]: (state, { payload: { data = [] } }) => ({
       ...state,
       articles: [...data]
     })

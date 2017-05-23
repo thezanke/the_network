@@ -5,6 +5,4 @@ import articles, { fetchArticlesEpic } from './articles';
 
 export const rootEpic = combineEpics(fetchArticlesEpic);
 
-export const rootReducer = combineReducers({
-  articles
-});
+export const rootReducer = combineReducers({ articles });

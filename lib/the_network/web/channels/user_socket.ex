@@ -1,11 +1,14 @@
 defmodule TheNetwork.Web.UserSocket do
+  @moduledoc false
+
   use Phoenix.Socket
 
-  ## Channels
+  # Channels
   # channel "room:*", TheNetwork.Web.RoomChannel
-  channel "articles:rank", TheNetwork.Web.ArticlesChannel
+  channel "articles:*", TheNetwork.Web.ArticlesChannel
+  channel "channel:*", TheNetwork.Web.ChannelChannel
 
-  ## Transports
+  # Transports
   transport :websocket, Phoenix.Transports.WebSocket
   # transport :longpoll, Phoenix.Transports.LongPoll
 
