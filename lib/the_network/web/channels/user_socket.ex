@@ -3,6 +3,7 @@ defmodule TheNetwork.Web.UserSocket do
 
   ## Channels
   # channel "room:*", TheNetwork.Web.RoomChannel
+  channel "articles:rank", TheNetwork.Web.ArticlesChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

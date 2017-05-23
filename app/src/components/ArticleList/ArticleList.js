@@ -7,7 +7,7 @@ const ArticleList = () => (
   <div className={styles.container}>
     <ul className={styles.list}>
       <Article headline="Lorem ipsum dolor sit amet." url="#" />
-      <Article headline="Lorem ipsum dolor sit amet." url="#" />
+      <Article headline="This is a test." url="#" />
       <Article headline="Lorem ipsum dolor sit amet." url="#" />
       <Article headline="Lorem ipsum dolor sit amet." url="#" />
       <Article headline="Lorem ipsum dolor sit amet." url="#" />
