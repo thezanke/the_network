@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Article from './Article';
+import Article from 'components/Article';
 import styles from './ArticleList.css';
 
 const ArticleList = () => (
