@@ -7,7 +7,7 @@ import { fetchArticles } from 'modules/articles';
 const mapStateToProps = state => ({});
 
 @connect(mapStateToProps, { fetchArticles })
-class ArticleListContainer extends Component {
+export default class ArticleListContainer extends Component {
   componentDidMount() {
     this.props.fetchArticles();
   }
@@ -15,5 +15,3 @@ class ArticleListContainer extends Component {
     return <ArticleList />;
   }
 }
-
-export default ArticleListContainer;

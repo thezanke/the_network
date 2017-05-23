@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ArticleListContainer from 'containers/ArticleListContainer';
+import ArticleListContainer from 'components/ArticleList/ArticleList.container';
 
 import styles from './App.css';
 
