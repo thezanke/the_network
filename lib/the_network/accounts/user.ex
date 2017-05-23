@@ -1,8 +1,10 @@
 defmodule TheNetwork.Accounts.User do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
-  alias TheNetwork.Accounts.User
 
+  alias TheNetwork.Accounts.User
 
   schema "accounts_users" do
     field :name, :string

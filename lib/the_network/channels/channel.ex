@@ -1,13 +1,18 @@
 defmodule TheNetwork.Channels.Channel do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
-  alias TheNetwork.Channels.Channel
 
+  alias TheNetwork.Channels.Article
+  alias TheNetwork.Channels.Channel
+  alias TheNetwork.Accounts.User
 
   schema "channels_channels" do
     field :description, :string
     field :name, :string
-    belongs_to :owner, TheNetwork.Accounts.User
+    belongs_to :owner, User
+    has_many :articles, Article
 
     timestamps()
   end
