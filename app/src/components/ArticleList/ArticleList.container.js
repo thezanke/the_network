@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 @connect(mapStateToProps, { fetchArticles })
 export default class ArticleListContainer extends Component {
   componentDidMount() {
-    this.props.fetchArticles();
+    this.props.fetchArticles(this.props.channel.id);
   }
 
   getChildProps = () => ({

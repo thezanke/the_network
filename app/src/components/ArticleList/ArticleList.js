@@ -16,11 +16,7 @@ const ArticleList = ({ articles, loading }) => {
     <div className={styles.container}>
       {articles.length > 0
         ? <ul className={styles.list}>
-            <Article headline="Lorem ipsum dolor sit amet." url="#" />
-            <Article headline="This is a test." url="#" />
-            <Article headline="Lorem ipsum dolor sit amet." url="#" />
-            <Article headline="Lorem ipsum dolor sit amet." url="#" />
-            <Article headline="Lorem ipsum dolor sit amet." url="#" />
+            {articles.map(article => <Article {...article} />)}
           </ul>
         : <div>No articles</div>}
     </div>

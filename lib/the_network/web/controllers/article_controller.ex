@@ -15,7 +15,7 @@ defmodule TheNetwork.Web.ArticleController do
     with {:ok, %Article{} = article} <- Channels.create_article(article_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", article_path(conn, :show, article))
+      |> put_resp_header("location", channel_article_path(conn, :show, article))
       |> render("show.json", article: article)
     end
   end

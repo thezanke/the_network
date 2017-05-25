@@ -38,6 +38,6 @@ export const fetchArticlesEpic = action$ =>
     .ofType(String(fetchArticles))
     .mergeMap(action =>
       ajax
-        .getJSON(`/api/articles`)
+        .getJSON(`/api/channels/${action.payload}/articles`)
         .map(response => fetchArticlesFulfilled(response))
     );
