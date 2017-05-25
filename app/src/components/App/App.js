@@ -12,7 +12,7 @@ export default ({ channel, loading }) => {
 
   return (
     <div className={styles.container}>
-      <Header />
+      <Header channel={channel} />
       <ArticleList />
       <Footer />
     </div>

@@ -7,7 +7,7 @@ import App from './App';
 
 const mapStateToProps = state => ({
   channel: channelData(state),
-  channelLoading: channelLoading(state)
+  loading: channelLoading(state)
 });
 
 @connect(mapStateToProps, { fetchChannel })
@@ -16,13 +16,13 @@ export default class AppContainer extends Component {
     this.props.fetchChannel(1);
   }
 
-  getChildProps = props => ({
-    channel: props.channel,
-    loading: props.channelLoading
+  getChildProps = () => ({
+    channel: this.props.channel,
+    loading: this.props.channelLoading
   });
 
   render() {
     const { channel } = this.props;
-    return <App {...this.getChildProps(this.props)} />;
+    return <App {...this.getChildProps()} />;
   }
 }

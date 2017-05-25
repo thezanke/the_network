@@ -2,27 +2,28 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs';
 import { createAction, handleActions } from 'redux-actions';
 
-// actions
-export const fetchChannel = createAction('FETCH_CHANNEL');
-export const fetchChannelFulfilled = createAction('FETCH_CHANNEL_FULFILLED');
-
-// reducer
 const defaultState = {
   loading: true,
   invalid: false,
   data: null
 };
 
+// actions
+export const fetchChannel = createAction('FETCH_CHANNEL');
+export const fetchChannelFulfilled = createAction('FETCH_CHANNEL_FULFILLED');
+
+// reducer
 export default handleActions(
   {
     [fetchChannel]: () => ({ ...defaultState }),
     [fetchChannelFulfilled]: {
-      next: (state, { payload: { data } }) => ({ ...state, data }),
-      throw: (state, action) => ({
-        ...defaultState,
+      next: (state, { payload: { data } }) => ({
+        ...state,
         loading: false,
-        invalid: true
-      })
+        invalid: false,
+        data
+      }),
+      throw: state => ({ ...defaultState, loading: false, invalid: true })
     }
   },
   defaultState
