@@ -35,5 +35,5 @@ module.exports = {
   resolve: {
     modules: ['node_modules', path.join(__dirname, 'src')]
   },
-  devtool: 'eval-cheap-module-source-map'
+  devtool: 'cheap-module-source-map'
 };
