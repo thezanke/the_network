@@ -17,8 +17,11 @@ defmodule TheNetwork.Web.Router do
   scope "/api", TheNetwork.Web do
     pipe_through :api
 
+    # This seems... gross
     resources "/channels", ChannelController, except: [:new, :edit] do
-      resources "/articles", ArticleController, except: [:new, :edit]
+      resources "/articles", ArticleController, except: [:new, :edit] do
+        resources "/comments", CommentController, except: [:new, :edit]
+      end
     end
     resources "/users", UserController, except: [:new, :edit]
   end

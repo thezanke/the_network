@@ -18,7 +18,7 @@ defmodule TheNetwork.Web.ArticleController do
   end
 
   def create(conn, %{"article" => article_params}, channel) do
-    article_params = Map.put(article_params, "channel_id", channel.id)
+    article_params = article_params |> Map.put("channel_id", channel.id)
 
     with {:ok, %Article{} = article} <- Channels.create_article(article_params) do
       conn
