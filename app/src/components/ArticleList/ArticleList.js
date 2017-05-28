@@ -3,7 +3,7 @@ import React from 'react';
 import Article from 'components/Article';
 import styles from './ArticleList.css';
 
-const ArticleList = ({ articles, loading }) => {
+const ArticleList = ({ articles, loading, fetchComments }) => {
   if (loading) {
     return <div>Loading articles...</div>;
   }
@@ -17,7 +17,11 @@ const ArticleList = ({ articles, loading }) => {
       {articles.length > 0
         ? <div className={styles.list}>
             {articles.map(article => (
-              <Article key={article.id} article={article} />
+              <Article
+                key={article.id}
+                article={article}
+                showComments={() => fetchComments(article.id)}
+              />
             ))}
           </div>
         : <div>No articles</div>}

@@ -1,13 +1,13 @@
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction, handleActions } from 'redux-actions';
 
-import { channelId } from 'modules/channel';
+import { getChannelId } from 'modules/channel';
 
 // state
 const defaultState = {
   loading: true,
   invalid: false,
-  data: null
+  data: []
 };
 
 // actions
@@ -37,10 +37,11 @@ export const articlesLoading = state => state.articles.loading;
 
 // epics
 export const fetchArticlesEpic = (action$, { getState }) =>
-  action$
-    .ofType(String(fetchArticles))
-    .mergeMap(action =>
-      ajax
-        .getJSON(`/api/channels/${channelId(getState())}/articles`)
-        .map(response => fetchArticlesFulfilled(response))
-    );
+  action$.ofType(String(fetchArticles)).mergeMap(action => {
+    const state = getState();
+    const channelId = getChannelId(state);
+
+    return ajax
+      .getJSON(`/api/channels/${channelId}/articles`)
+      .map(response => fetchArticlesFulfilled(response));
+  });

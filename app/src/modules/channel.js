@@ -39,7 +39,7 @@ export default handleActions(
 );
 
 // selectors
-export const channelId = state => state.channel.channelId;
+export const getChannelId = state => state.channel.channelId;
 export const channelData = state => state.channel.data;
 export const channelLoading = state => state.channel.loading;
 export const channelInvalid = state => state.channel.invalid;
@@ -51,7 +51,7 @@ export const fetchChannelEpic = (action$, { getState }) =>
     .filter(() => !channelInvalid(getState()))
     .mergeMap(action =>
       ajax
-        .getJSON(`/api/channels/${channelId(getState())}`)
+        .getJSON(`/api/channels/${getChannelId(getState())}`)
         .map(response => fetchChannelFulfilled(response))
         .catch(error => Observable.of(fetchChannelFulfilled(error)))
     );
