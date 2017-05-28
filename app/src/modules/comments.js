@@ -40,12 +40,9 @@ export default handleActions(
 export const getArticleId = state => state.comments.articleId;
 export const commentsData = state => state.comments.data;
 export const commentsLoading = state => state.comments.loading;
-export const rootComments = createSelector([commentsData], comments =>
-  comments.filter(comment => !comment.parent)
-);
 
-export const childComments = createSelector(
-  [(state, props) => props.commentId, commentsData],
+export const getComments = createSelector(
+  [(state, props) => props.commentId || null, commentsData],
   (commentId, comments) =>
     comments.filter(comment => comment.parent === commentId)
 );

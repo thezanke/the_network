@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { childComments } from 'modules/comments';
+import { getComments } from 'modules/comments';
 
 import styles from './CommentTree.css';
 
@@ -19,7 +19,7 @@ const CommentTree = ({ comments }) => (
 );
 
 const mapStateToProps = (state, props) => ({
-  comments: childComments(state, props)
+  comments: getComments(state, props)
 });
 
 const ChildComments = connect(mapStateToProps, null)(CommentTree);
