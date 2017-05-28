@@ -1,18 +1,18 @@
 import React from 'react';
 
+import CommentTree from 'components/CommentTree';
+
 export default ({ loading, comments, show }) => {
   if (show) {
     if (loading) return <div>Loading comments...</div>;
 
+    const hasComments = comments.length > 0;
+
     return (
       <div>
-        {comments.length
-          ? comments.map(comment => (
-              <div key={comment.id}>
-                <pre>{JSON.stringify(comment, null, 2)}</pre>
-              </div>
-            ))
-          : 'No comments 😢'}
+        {hasComments
+          ? <CommentTree comments={comments} />
+          : <div>No comments to display 😢</div>}
       </div>
     );
   } else {

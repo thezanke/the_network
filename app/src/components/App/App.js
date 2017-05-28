@@ -1,20 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import ArticleList from 'components/ArticleList';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import Channel from 'components/Channel';
+import NoRoute from 'components/NoRoute';
 
 import styles from './App.css';
 
-export default ({ channel, loading }) => {
-  if (loading) return <div>Loading channel...</div>;
-  if (!channel) return <div>Channel could not be loaded.</div>;
-
-  return (
+export default () => (
+  <Router>
     <div className={styles.container}>
-      <Header channel={channel} />
-      <ArticleList channel={channel} />
-      <Footer />
+      <Switch>
+        <Route exact path="/" component={Channel} />
+        <Route component={NoRoute} />
+      </Switch>
     </div>
-  );
-};
+  </Router>
+);

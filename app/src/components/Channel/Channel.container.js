@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchChannel, channelData, channelLoading } from 'modules/channel';
 
-import App from './App';
+import App from './Channel';
 
 const mapStateToProps = state => ({
   channel: channelData(state),
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 @connect(mapStateToProps, { fetchChannel })
-export default class AppContainer extends Component {
+export default class ChannelContainer extends Component {
   componentDidMount() {
     this.props.fetchChannel(1);
   }
