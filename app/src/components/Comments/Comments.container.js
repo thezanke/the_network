@@ -1,10 +1,10 @@
 import Comments from './Comments';
 import { connect } from 'react-redux';
 
-import { getArticleId, commentsData, commentsLoading } from 'modules/comments';
+import { getArticleId, rootComments, commentsLoading } from 'modules/comments';
 
 const mapStateToProps = (state, ownProps) => ({
-  comments: commentsData(state),
+  comments: rootComments(state),
   loading: commentsLoading(state),
   show: ownProps.articleId === getArticleId(state)
 });

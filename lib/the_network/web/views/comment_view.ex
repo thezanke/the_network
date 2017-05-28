@@ -12,6 +12,7 @@ defmodule TheNetwork.Web.CommentView do
 
   def render("comment.json", %{comment: comment}) do
     %{id: comment.id,
-      content: comment.content}
+      content: comment.content,
+      parent: comment.parent_comment_id}
   end
 end

@@ -1,5 +1,6 @@
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction, handleActions } from 'redux-actions';
+import { createSelector } from 'reselect';
 
 import { getChannelId } from 'modules/channel';
 
@@ -39,6 +40,15 @@ export default handleActions(
 export const getArticleId = state => state.comments.articleId;
 export const commentsData = state => state.comments.data;
 export const commentsLoading = state => state.comments.loading;
+export const rootComments = createSelector([commentsData], comments =>
+  comments.filter(comment => !comment.parent)
+);
+
+export const childComments = createSelector(
+  [(state, props) => props.commentId, commentsData],
+  (commentId, comments) =>
+    comments.filter(comment => comment.parent === commentId)
+);
 
 // epics
 export const fetchCommentsEpic = (action$, { getState }) =>
