@@ -15,9 +15,11 @@ const ArticleList = ({ articles, loading }) => {
   return (
     <div className={styles.container}>
       {articles.length > 0
-        ? <ul className={styles.list}>
-            {articles.map(article => <Article {...article} />)}
-          </ul>
+        ? <div className={styles.list}>
+            {articles.map(article => (
+              <Article key={article.id} article={article} />
+            ))}
+          </div>
         : <div>No articles</div>}
     </div>
   );
