@@ -22,7 +22,6 @@ export default class ChannelContainer extends Component {
   });
 
   render() {
-    const { channel } = this.props;
     return <App {...this.getChildProps()} />;
   }
 }

@@ -12,7 +12,10 @@ export default ({ loading, comments, show }) => {
       <div>
         {hasComments
           ? <CommentTree comments={comments} />
-          : <div>No comments to display 😢</div>}
+          : <div>
+              No comments to display
+              {' '}<span role="img" aria-label="sadface">😢</span>
+            </div>}
       </div>
     );
   } else {

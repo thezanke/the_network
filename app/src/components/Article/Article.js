@@ -4,16 +4,15 @@ import Comments from 'components/Comments';
 
 import styles from './Article.css';
 
-const Article = ({ article: { id, headline, url }, showComments }) => (
+const Article = ({ article, showComments }) =>
   <div className={styles.article}>
     <div>
-      <a href={url}>{headline}</a>
+      <a href={article.url}>{article.headline}</a>
     </div>
-    <Comments articleId={id} />
     <div className={styles.controls}>
       <button onClick={showComments}>Show Comments</button>
     </div>
-  </div>
-);
+    <Comments articleId={article.id} />
+  </div>;
 
 export default Article;
