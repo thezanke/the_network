@@ -13,8 +13,8 @@ export default ({ loading, comments, show }) => {
         {hasComments
           ? <CommentTree comments={comments} />
           : <div>
-              No comments to display
-              {' '}<span role="img" aria-label="sadface">😢</span>
+              {'No comments to display '}
+              <span role="img" aria-label="sadface">😢</span>
             </div>}
       </div>
     );
